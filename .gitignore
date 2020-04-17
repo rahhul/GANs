@@ -1,0 +1,3 @@
+.DS_Store
+cifar10/trainer/__pycache__
+.config
