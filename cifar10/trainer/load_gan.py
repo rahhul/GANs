@@ -22,7 +22,7 @@ def display_plot(examples, n):
     for i in range(n * n):
         plt.subplot(n, n, 1 + i)
         plt.axis("off")
-        plt.imshow(examples[i, :, :, :])
+        plt.imshow(examples[i, :, :])
     plt.show()
 
 
