@@ -6,9 +6,9 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
 
-model = load_model('generator_model_050.h5')
+model = load_model('saved_models/generator_model_050.h5')
 
-vector = np.asarray([[0.55 for _ in range(100)]])
+vector = np.asarray([[2.55 for _ in range(100)]])
 
 X = model.predict(vector)
 

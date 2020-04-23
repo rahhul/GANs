@@ -22,15 +22,17 @@ def display_plot(examples, n):
     for i in range(n * n):
         plt.subplot(n, n, 1 + i)
         plt.axis("off")
-        plt.imshow(examples[i, :, :])
+        plt.imshow(examples[i, :])
     plt.show()
 
 
-model = load_model('generator_model_050.h5')
+model = load_model('saved_models/generator_model_050.h5')
 latent_points = generate_latent_points(100, 100)
+
 X = model.predict(latent_points)
+
 print(X.shape)
 # scale X
 X = (X + 1) / 2.0
 
-display_plot(X, 10)
+display_plot(X, 5)
