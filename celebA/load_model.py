@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 # generate latent points from a Gaussian distribution
 def generate_latent_points(latent_dim, n_samples):
     # generate random points
-    x_input = np.random.randn(latent_dim * n_samples)
+    latent_points = np.random.randn(latent_dim * n_samples)
     # reshape
-    x_input = x_input.reshape(n_samples, latent_dim)
-    return x_input
+    latent_points = latent_points.reshape(n_samples, latent_dim)
+    return latent_points
 
 # plot figures
 def plot_model_output(predictions, n):
@@ -34,4 +34,4 @@ model_output = model.predict(latent_points)
 # scale pixel values to [0, 1]
 model_output = (model_output + 1) / 2.0
 
-plot_model_output(model_output, 5)
+plot_model_output(model_output, 3)
