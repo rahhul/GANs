@@ -1,7 +1,6 @@
 # python3
 
 import numpy as np
-from scipy import interpolate
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 
@@ -44,7 +43,6 @@ def latent_points_interpolate(latent_dim: int, n_samples: int) -> np.ndarray:
 
 # plot generated images
 def plot_faces(examples, n):
-
     for i in range(n * n):
         plt.subplot(n, n, i + 1)
         plt.axis('off')
