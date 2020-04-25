@@ -3,7 +3,8 @@
 import numpy as np
 from models import generator_model, discriminator_model, gan_model
 import matplotlib.pyplot as plt
-from tensorflow.keras.utils import Progbar
+# from tensorflow.keras.utils import Progbar
+
 
 # load and preprocess training images
 def load_real_samples():
@@ -14,9 +15,11 @@ def load_real_samples():
     X = (X - 127.5) / 127.5
     return X
 
+
 # label clipping
 def smooth_labels(y):
     return y - 0.3 + (np.random.random(y.shape) * 0.5)
+
 
 # generate samples
 def generate_real_samples(dataset, n_samples):
@@ -48,7 +51,7 @@ def generate_fake_samples(g_model, latent_dim, n_samples):
 
 
 # save plots
-def save_plot(examples, epoch, n = 10):
+def save_plot(examples, epoch, n=10):
     # scale images from [-1, 1] to [0, 1]
     examples = (examples + 1) / 2.0
     # plot images
@@ -67,7 +70,7 @@ def evaluate_performance(epoch, g_model, d_model, dataset, latent_dim,
     # Real samples
     X_real, y_real = generate_real_samples(dataset, n_samples)
     # evaluate discriminator
-    _, acc_real = d_model.evaluate(X_real, y_real, verbose = 0)
+    _, acc_real = d_model.evaluate(X_real, y_real, verbose=0)
     # Fake samples
     X_fake, y_fake = generate_fake_samples(g_model, latent_dim, n_samples)
     # evaluate discriminator
@@ -96,7 +99,8 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100,
             # update discriminator
             d_loss1, _ = d_model.train_on_batch(X_real, y_real)
             # generate fake samples
-            X_fake, y_fake = generate_fake_samples(g_model, latent_dim, half_batch)
+            X_fake, y_fake = generate_fake_samples(g_model, latent_dim,
+                                                   half_batch)
             # update discriminator again
             d_loss2, _ = d_model.train_on_batch(X_fake, y_fake)
             # points in latent space
@@ -112,7 +116,8 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100,
         if (i+1) % 5 == 0:
             evaluate_performance(i, g_model, d_model, dataset, latent_dim)
 
-## RUN
+
+# RUN
 latent_dim = 100
 d_model, g_model = discriminator_model(), generator_model(latent_dim)
 gan = gan_model(g_model, d_model)

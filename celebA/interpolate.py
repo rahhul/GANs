@@ -15,7 +15,7 @@ def slerp(val, low, high):
         # L'Hopital's rule/LERP
         return (1.0 - val) * low + val * high
     return np.sin((1.0 - val) * omega) / so * low + \
-                    np.sin(val * omega) / so * high
+        np.sin(val * omega) / so * high
 
 
 def linear_interpolation(p1: int, p2: int, n_steps: int = 10) -> np.ndarray:
@@ -27,6 +27,7 @@ def linear_interpolation(p1: int, p2: int, n_steps: int = 10) -> np.ndarray:
         v = slerp(value, p1, p2)
         vectors.append(v)
     return np.asarray(vectors)
+
 
 # generate random points in latent space
 def latent_points_interpolate(latent_dim: int, n_samples: int) -> np.ndarray:
@@ -40,6 +41,7 @@ def latent_points_interpolate(latent_dim: int, n_samples: int) -> np.ndarray:
     # interpolate
     Z = linear_interpolation(z[0], z[1])
     return Z
+
 
 # plot generated images
 def plot_faces(examples, n):
