@@ -1,4 +1,50 @@
-# GANs
-My experiments in implementing GANs in Tensorflow. Models trained on Google Cloud.
+---
+description: Notes and experiments on GANs.
+---
 
-- API key for Comet ML required.  
+# GANs
+
+Tensorflow implementation of GANs \[Generative Adversarial Networks\]. Models trained on GCP with 1 x NVIDIA Tesla T4.
+
+![Cifar 10 GAN images after 60 epochs](.gitbook/assets/plot_g060.png)
+
+
+
+## DCGAN on CelebA dataset
+
+#### **\# TODO: Merge with Master**
+
+### Experiments:
+
+* [x] Label Clipping/Label Smoothing
+* [x] BatchNorm layers in Generator model
+* [ ] Change plotting and integrate Comet ML
+* [ ] Streamlit.io 
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+### To Do:
+
+* [x] MTCNN implementation for "face extraction"
+* [x] Create np.savez\_compressed
+* [ ] Tf-Gan model abstraction
+* [ ] Latent Space _SLERP_ interpolation
+
+
+
+## DCGAN on Cifar10
+
+#### kernel initializer = glorot\_normal
+
+
+
+### 
+
+
+
+
+
+
+
+
+
