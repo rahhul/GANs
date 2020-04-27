@@ -4,6 +4,7 @@ import numpy as np
 from models import generator_model, discriminator_model, gan_model
 import matplotlib.pyplot as plt
 # from tensorflow.keras.utils import Progbar
+from os import makedirs
 
 
 # load and preprocess training images
@@ -16,7 +17,7 @@ def load_real_samples():
     return X
 
 
-# label clipping
+# label smoothing
 def smooth_labels(y):
     return y - 0.3 + (np.random.random(y.shape) * 0.5)
 
@@ -60,7 +61,7 @@ def save_plot(examples, epoch, n=10):
         plt.axis("off")
         plt.imshow(examples[i])
     # save file
-    filename = 'generated_plot_e%03d.png' % (epoch + 1)
+    filename = 'results/plot_e%03d.png' % (epoch + 1)
     plt.savefig(filename)
     plt.close()
 
@@ -80,7 +81,7 @@ def evaluate_performance(epoch, g_model, d_model, dataset, latent_dim,
     # generate a plot of the images
     save_plot(X_fake, epoch)
     # save model
-    model_filename = 'model_%02d.h5' % (epoch + 1)
+    model_filename = 'results/model_%02d.h5' % (epoch + 1)
     g_model.save(model_filename)
 
 
@@ -118,8 +119,12 @@ def train(g_model, d_model, gan_model, dataset, latent_dim, n_epochs=100,
 
 
 # RUN
+makedirs('results', exist_ok=True)
+
 latent_dim = 100
+
 d_model, g_model = discriminator_model(), generator_model(latent_dim)
+
 gan = gan_model(g_model, d_model)
 
 dataset = load_real_samples()
