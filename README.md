@@ -4,7 +4,7 @@ description: Notes and experiments on GANs.
 
 # GANs
 
-Tensorflow implementation of GANs \[Generative Adversarial Networks\]. Models trained on GCP with 1 x NVIDIA Tesla T4.
+Tensorflow implementation of DCGANs \[Generative Adversarial Networks\]. Models trained on GCP with 1 x NVIDIA Tesla T4.
 
 ![Cifar 10 GAN images after 60 epochs](.gitbook/assets/plot_g060.png)
 
