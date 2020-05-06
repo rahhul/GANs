@@ -8,6 +8,8 @@ Tensorflow implementation of DCGANs \[Generative Adversarial Networks\]. Models 
 
 ![Cifar 10 GAN images after 60 epochs](.gitbook/assets/plot_g060.png)
 
+![CelebA GAN images after 60 epochs](.gitbook/assets/plot_e060.png)
+
 
 
 ## DCGAN on CelebA dataset
