@@ -26,8 +26,8 @@ def display_plot(examples, n):
     plt.show()
 
 
-model = load_model('saved_models/generator_model_050.h5')
-latent_points = generate_latent_points(100, 100)
+model = load_model('saved_models/model_060.h5')
+latent_points = generate_latent_points(128, 100)
 
 X = model.predict(latent_points)
 
@@ -35,4 +35,4 @@ print(X.shape)
 # scale X
 X = (X + 1) / 2.0
 
-display_plot(X, 5)
+display_plot(X, 10)
