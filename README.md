@@ -6,7 +6,11 @@ description: Notes and experiments on GANs.
 
 Tensorflow implementation of DCGANs \[Generative Adversarial Networks\]. Models trained on GCP with 1 x NVIDIA Tesla T4.
 
-![Cifar 10 GAN images after 60 epochs](.gitbook/assets/plot_g060.png)
+![Cifar 10 DCGAN images after 60 epochs](.gitbook/assets/plot_g060.png)
+
+CIFAR-10 and CelebA DCGAN generated images. Approx. 60 epochs.
+
+![CelebA DCGAN images after 60 epochs](.gitbook/assets/plot_e060.png)
 
 
 
