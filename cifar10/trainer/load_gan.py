@@ -3,10 +3,12 @@
 # Load Gan trained model from directory to see results
 
 import tensorflow as tf
-from tensorflow import keras
+# from tensorflow import keras
 from tensorflow.keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
+
+print(tf.__version__)
 
 # generate latent points
 # generate latent points
